@@ -21,14 +21,21 @@ based on Minecraft PE v0.1.3.
 	* HaikuOS (thanks to [SanyaSho](https://github.com/SanyaSho))
 	* Xbox 360 (work in progress; port by [BrentDaMage](https://github.com/BrentDaMage))
 
+**My goals are:**
+* To add some features from more modern Minecraft versions.
+* Fix bugs.
+* Add some custom stuff.
+* Add modding support.
+* For more details check TODO.TXT. 
+
 **We will not do the following:**
 * Add features added in or after Java Edition Beta 1.8
-* Backport features from versions newer than 0.9.0
+* Backport features from versions newer than 0.9.0 (nah i will do 🗣️🔥)
 * Add The Nether or The End (probably)
-* Add Herobrine
+* Add Herobrine (definitely i will add him 🔥)
 * Add support for Minecraft Java or Minecraft Bedrock servers. (although LAN play with original MCPE clients
   will be supported for as long as possible)
-* Modify the project structure
+* Modify the project structure (idk)
 
 Note: While the original Minecraft PE v0.1.3 may not work on newer devices, ReMinecraftPE works on all Android devices.
 
