@@ -7,3 +7,4 @@ Improve controls on desktop devices
 Improve gui
 Crafting
 Extended world generation
+Add more mobs(!!!FOXES!!!)
