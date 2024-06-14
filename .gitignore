@@ -208,6 +208,8 @@ xcuserdata/
 /game/assets/snow.png
 /game/assets/mob/pig.png
 
+/game/assets/
+
 /game/apk*
 /source/sound_data
 /tools/sound_data

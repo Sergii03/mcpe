@@ -485,7 +485,7 @@ void Tile::initTiles()
 	Tile::torch = (new TorchTile(TILE_TORCH, TEXTURE_TORCH_LIT, Material::decoration))
 		->init()
 		->setDestroyTime(0.0f)
-		->setLightEmission(15.0f / 16.0f)
+		->setLightEmission(2.0f)
 		->setSoundType(Tile::SOUND_WOOD)
 		->setDescriptionId("torch");
 

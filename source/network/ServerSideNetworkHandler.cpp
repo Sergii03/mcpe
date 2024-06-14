@@ -406,6 +406,37 @@ void ServerSideNetworkHandler::setupCommands()
 	m_commands["time"]  = &ServerSideNetworkHandler::commandTime;
 	m_commands["seed"]  = &ServerSideNetworkHandler::commandSeed;
 	m_commands["tp"]    = &ServerSideNetworkHandler::commandTP;
+	m_commands["give"]    = &ServerSideNetworkHandler::commandGIVE;
+}
+#include <common/Utils.hpp>
+
+void ServerSideNetworkHandler::commandGIVE(OnlinePlayer* player, const std::vector<std::string>& params)
+{
+	static bool PrintWarning = false;
+
+	if(PrintWarning == false)
+	{
+		PrintWarning = true; sendMessage(player, "safe ID's are to 24 index further can be crash because of missing blocks!");
+	}
+	if(player && m_pLevel && !params.empty())
+	{
+		int id = atoi(params[0].c_str());
+		int amount = 1;
+		if(params.size() > 1)
+		{
+			amount = atoi(params[1].c_str());
+		}
+
+		if(eTileID::ITEM_ROCKET < id || eTileID::TILE_AIR > id)
+		{
+			sendMessage(player, "Invalid ID");
+		}
+		ItemInstance itm(id,amount,0);
+		player->m_pPlayer->m_pInventory->addItem(&itm);
+	}
+	else {
+			sendMessage(player, "Requires atleast 1 argument");
+	}
 }
 
 void ServerSideNetworkHandler::commandHelp(OnlinePlayer* player, const std::vector<std::string>& parms)

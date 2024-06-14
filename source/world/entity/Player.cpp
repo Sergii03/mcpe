@@ -256,6 +256,7 @@ void Player::drop(ItemInstance* pItemInstance, bool b)
 	if (!pItemInstance)
 		return;
 
+	
 	ItemEntity* pItemEntity = new ItemEntity(m_pLevel, m_pos.x, m_pos.y - 0.3f + getHeadHeight(), m_pos.z, pItemInstance);
 	pItemEntity->field_E4 = 40;
 
@@ -385,7 +386,7 @@ GameType Player::getPlayerGameType()
 	return m_playerGameType;
 }
 
-bool Player::isSurvivle()
+bool Player::isSurvival()
 {
 	return m_playerGameType == GAME_TYPE_SURVIVAL;
 }
