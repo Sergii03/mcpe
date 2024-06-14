@@ -1,0 +1,9 @@
+WorldType
+Survival inventory from later mcpe
+Add more items
+Add more blocks
+Fix bugs
+Improve controls on desktop devices
+Improve gui
+Crafting
+Extended world generation
