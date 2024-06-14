@@ -55,15 +55,27 @@ public:
 	int m_nPlayers;
 	std::string field_78;
 
+	GameType m_gameType;
+
 	// inlined in 0.1.0 demo
 	int getVersion() const
 	{
 		return field_20;
 	}
 
+	GameType getGameType() const
+	{
+		return m_gameType;
+	}
+
 	void setLevelName(const std::string& name)
 	{
 		field_78 = name;
+	}
+
+	void setGameType(GameType gameType)
+	{
+		m_gameType = gameType;
 	}
 };
 

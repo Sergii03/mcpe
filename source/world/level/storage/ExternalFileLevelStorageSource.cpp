@@ -170,6 +170,7 @@ void ExternalFileLevelStorageSource::addLevelSummaryIfExists(std::vector<LevelSu
 	ls.field_18 = ld.field_78;
 	ls.field_30 = ld.field_14;
 	ls.field_34 = ld.field_18;
+	ls.m_gameType = ld.m_gameType;
 	vls.push_back(ls);
 }
 

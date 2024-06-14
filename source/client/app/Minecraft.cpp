@@ -634,7 +634,23 @@ void Minecraft::respawnPlayer(Player* player)
 
 std::string Minecraft::getVersionString()
 {
-	return "v0.1.0 alpha";
+	return "v0.1.0 custom alpha";
+}
+
+void Minecraft::setGameMode(GameType gametype)
+{
+	if (m_pLevel)
+	{
+		m_pGameMode = createGameMode(gametype, *m_pLevel);
+		m_pGameMode->initLevel(m_pLevel);
+	}
+}
+
+GameMode* Minecraft::getGameMode()
+{
+	if (m_pGameMode)
+		return m_pGameMode;
+	return nullptr;
 }
 
 void Minecraft::_reloadInput()
@@ -673,6 +689,19 @@ void Minecraft::_levelGenerated()
 {
 	if (m_pNetEventCallback)
 		m_pNetEventCallback->levelGenerated(m_pLevel);
+}
+
+GameMode* Minecraft::createGameMode(GameType gameType, Level& level)
+{
+	switch (gameType)
+	{
+	case GAME_TYPE_SURVIVAL:
+		return new SurvivalMode(this/*, level*/);
+	case GAME_TYPE_CREATIVE:
+		return new CreativeMode(this/*, level*/);
+	default:
+		return nullptr;
+	}
 }
 
 void Minecraft::tick()
@@ -785,7 +814,8 @@ void Minecraft::update()
 	m_fLastUpdated = time;
 
 	// Added by iProgramInCpp
-	m_pGameMode->render(m_timer.m_renderTicks);
+	if(m_pGameMode)
+		m_pGameMode->render(m_timer.m_renderTicks);
 }
 
 void Minecraft::init()
@@ -824,12 +854,6 @@ void Minecraft::init()
 	m_pGameRenderer = new GameRenderer(this);
 	m_pParticleEngine = new ParticleEngine(m_pLevel, m_pTextures);
 	m_pUser = new User(getOptions()->m_playerName, "");
-
-#ifdef TEST_SURVIVAL_MODE
-	m_pGameMode = new SurvivalMode(this);
-#else
-	m_pGameMode = new CreativeMode(this);
-#endif
 
 	// "Default.png" for the launch image overwrites "default.png" for the font during app packaging
 	m_pFont = new Font(m_options, "font/default8.png", m_pTextures);
@@ -1092,8 +1116,6 @@ void Minecraft::setLevel(Level* pLevel, const std::string& text, LocalPlayer* pL
 
 	if (pLevel)
 	{
-		m_pGameMode->initLevel(pLevel);
-
 		if (pLocalPlayer && m_pLocalPlayer == nullptr)
 		{
 			m_pLocalPlayer = pLocalPlayer;
@@ -1108,6 +1130,11 @@ void Minecraft::setLevel(Level* pLevel, const std::string& text, LocalPlayer* pL
 		m_pLevel = pLevel;
 		m_bPreparingLevel = true;
 		m_pPrepThread = new CThread(&Minecraft::prepareLevel_tspawn, this);
+
+		if (m_pLocalPlayer)
+			setGameMode(m_pLocalPlayer->getPlayerGameType());
+		else
+			setGameMode(pLevel->getLevelData()->getGameType());
 	}
 	else
 	{
@@ -1115,12 +1142,13 @@ void Minecraft::setLevel(Level* pLevel, const std::string& text, LocalPlayer* pL
 	}
 }
 
-void Minecraft::selectLevel(const std::string& a, const std::string& b, int c)
+void Minecraft::selectLevel(const std::string& a, const std::string& b, int c, GameType gameType)
 {
 	LevelStorage* pStor = m_pLevelStorageSource->selectLevel(a, false);
 	Dimension* pDim = Dimension::getNew(0);
 
 	m_pLevel = new Level(pStor, b, c, 1, pDim);
+	m_pLevel->getLevelData()->setGameType(gameType);
 	setLevel(m_pLevel, "Generating level", nullptr);
 
 	field_D9C = 1;

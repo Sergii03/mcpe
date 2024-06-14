@@ -16,6 +16,7 @@ struct LevelSummary
 	std::string field_18;
 	int field_30;
 	int field_34;
+	GameType m_gameType;
 
 	LevelSummary()
 	{
@@ -23,12 +24,13 @@ struct LevelSummary
 		field_34 = 0;
 	}
 
-	LevelSummary(const std::string& a, const std::string& b, int c, int d)
+	LevelSummary(const std::string& a, const std::string& b, int c, int d, GameType gameType)
 	{
 		field_0 = a;
 		field_18 = b;
 		field_30 = c;
 		field_34 = d;
+		m_gameType = gameType;
 	}
 
 	bool operator<(const LevelSummary& b) const

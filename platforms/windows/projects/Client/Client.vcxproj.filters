@@ -33,17 +33,11 @@
     <Filter Include="Source Files\Model">
       <UniqueIdentifier>{8038fa2f-a8f9-48c4-8f3d-90fd0d4c99d3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Player">
-      <UniqueIdentifier>{b0ad8d7a-3c01-4608-b739-308b6d19568e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Player">
       <UniqueIdentifier>{34d903df-f3e4-4853-92a1-c5ff5b69e3e7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Player\Input">
       <UniqueIdentifier>{48fef3b3-595d-407b-baf1-b066e9c6b072}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Player\Input">
-      <UniqueIdentifier>{8e000f2f-a151-4db8-8bba-20499fd5660c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Renderer">
       <UniqueIdentifier>{e04c779e-763d-47f3-8b8a-55ef1a6bc56f}</UniqueIdentifier>
@@ -80,6 +74,12 @@
     </Filter>
     <Filter Include="Source Files\Network">
       <UniqueIdentifier>{14572243-8875-4ea9-aae1-7f52b1953754}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Player">
+      <UniqueIdentifier>{b0ad8d7a-3c01-4608-b739-308b6d19568e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Player\Input">
+      <UniqueIdentifier>{8e000f2f-a151-4db8-8bba-20499fd5660c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -437,6 +437,12 @@
     <ClInclude Include="$(MC_ROOT)\source\client\renderer\entity\RocketRenderer.hpp">
       <Filter>Header Files\Renderer\Entity</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\source\client\gui\components\CustomButton.hpp">
+      <Filter>Header Files\GUI\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\source\client\gui\screens\ArmorScreen.hpp">
+      <Filter>Header Files\GUI\Screens</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MC_ROOT)\source\client\gui\components\AvailableGamesList.cpp">
@@ -530,25 +536,25 @@
       <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\Controller.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\ControllerTurnInput.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\ITurnInput.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\Keyboard.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\KeyboardInput.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\Mouse.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\MouseTurnInput.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\renderer\entity\EntityRenderDispatcher.cpp">
       <Filter>Source Files\Renderer\Entity</Filter>
@@ -674,49 +680,49 @@
       <Filter>Source Files\Network</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\IncludeExcludeArea.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\PolygonArea.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\RectangleArea.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\MouseHandler.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\IBuildInput.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\Multitouch.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\MouseDevice.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\ITouchScreenModel.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\TouchAreaModel.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\IMoveInput.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\IInputHolder.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\CustomInputHolder.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\UnifiedTurnBuild.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\TouchscreenInput_TestFps.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\player\input\TouchInputHolder.cpp">
-      <Filter>Source Files\Player\Input</Filter>
+      <Filter>Source Files\Renderer\Player\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\model\ModelPart.cpp">
       <Filter>Source Files\Model</Filter>
@@ -789,6 +795,12 @@
     </ClCompile>
     <ClCompile Include="$(MC_ROOT)\source\client\renderer\entity\RocketRenderer.cpp">
       <Filter>Source Files\Renderer\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\client\gui\components\CustomButton.cpp">
+      <Filter>Source Files\GUI\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\client\gui\screens\ArmorScreen.cpp">
+      <Filter>Source Files\GUI\Screens</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -148,6 +148,9 @@ void WorldSelectionList::renderItem(int index, int xPos, int yPos, int width, Te
 	drawString(m_pMinecraft->m_pFont, details[0], xCenter + 5 - m_itemWidth / 2, yPos + 50, color1);
 	drawString(m_pMinecraft->m_pFont, details[1], xCenter + 5 - m_itemWidth / 2, yPos + 60, color2);
 	drawString(m_pMinecraft->m_pFont, details[2], xCenter + 5 - m_itemWidth / 2, yPos + 70, color2);
+#ifndef ORIGINAL_CODE
+	drawString(m_pMinecraft->m_pFont, details[3], xCenter + 70 - m_itemWidth / 2, yPos + 70, color2);
+#endif
 
 	m_pMinecraft->m_pTextures->loadAndBindTexture(m_previewImages[index]);
 	
@@ -168,6 +171,21 @@ void WorldSelectionList::renderBackground()
 {
 }
 
+#ifndef ORIGINAL_CODE
+std::string WorldSelectionList::getGameModeString(GameType gameType)
+{
+	switch (gameType)
+	{
+	case GAME_TYPE_CREATIVE:
+		return "Creative";
+	case GAME_TYPE_SURVIVAL:
+		return "Survival";
+	default:
+		return "Unknown";
+	}
+}
+#endif
+
 void WorldSelectionList::commit()
 {
 	for (int i = 0; i < int(m_items.size()); i++)
@@ -185,6 +203,9 @@ void WorldSelectionList::commit()
 		vs.push_back(item.field_18);
 		vs.push_back(m_pMinecraft->platform()->getDateString(item.field_30));
 		vs.push_back(item.field_0);
+#ifndef ORIGINAL_CODE
+		vs.push_back(getGameModeString(item.m_gameType));
+#endif
 		m_vvs.push_back(vs);
 	}
 }

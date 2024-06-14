@@ -103,7 +103,7 @@ void ServerSideNetworkHandler::handle(const RakNet::RakNetGUID& guid, LoginPacke
 		return;
 	}
 
-	Player* pPlayer = new Player(m_pLevel);
+	Player* pPlayer = new Player(m_pLevel, m_pLevel->getLevelData()->getGameType());
 	pPlayer->m_guid = guid;
 	pPlayer->m_name = std::string(packet->m_str.C_String());
 
@@ -118,6 +118,8 @@ void ServerSideNetworkHandler::handle(const RakNet::RakNetGUID& guid, LoginPacke
 	sgp.field_18 = pPlayer->m_pos.z;
 	sgp.m_version = 2;
 	sgp.m_time = m_pLevel->getTime();
+
+	sgp.m_gameType = pPlayer->m_playerGameType;
 	
 	RakNet::BitStream sgpbs;
 	sgp.write(&sgpbs);

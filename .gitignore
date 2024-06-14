@@ -207,3 +207,8 @@ xcuserdata/
 /game/assets/gui/feedback_outer.png
 /game/assets/snow.png
 /game/assets/mob/pig.png
+
+/game/apk*
+/source/sound_data
+/tools/sound_data
+/game/assets

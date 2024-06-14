@@ -47,7 +47,7 @@ public:
 	void handleMouseDown(int type, bool b);
 	void handleBuildAction(BuildActionIntention*);
 	bool isLevelGenerated();
-	void selectLevel(const std::string&, const std::string&, int);
+	void selectLevel(const std::string&, const std::string&, int, GameType = GAME_TYPE_CREATIVE);
 	void setLevel(Level*, const std::string&, LocalPlayer*);
 	void pauseGame();
 	void leaveGame(bool bCopyMap);
@@ -82,11 +82,16 @@ public:
 	ItemInstance* getSelectedItem();
 	Options* getOptions() const { return m_options; }
 
+	void setGameMode(GameType);
+	GameMode* getGameMode();
+
 	static void setGuiScaleMultiplier(float f);
 	
 private:
 	void _reloadInput();
 	void _levelGenerated();
+
+	GameMode* createGameMode(GameType, Level&);
 
 public:
 	static float guiScaleMultiplier;

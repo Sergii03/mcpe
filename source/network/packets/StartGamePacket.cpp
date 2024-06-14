@@ -28,6 +28,8 @@ void StartGamePacket::write(RakNet::BitStream* bs)
 	{
 		bs->Write(m_time);
 	}
+
+	bs->Write(m_gameType);
 }
 
 void StartGamePacket::read(RakNet::BitStream* bs)
@@ -46,4 +48,6 @@ void StartGamePacket::read(RakNet::BitStream* bs)
 		return;
 	
 	bs->Read(m_time);
+
+	bs->Read(m_gameType);
 }

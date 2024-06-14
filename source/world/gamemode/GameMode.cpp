@@ -73,7 +73,7 @@ float GameMode::getPickRange()
 
 LocalPlayer* GameMode::createPlayer(Level* pLevel)
 {
-	return new LocalPlayer(m_pMinecraft, pLevel, m_pMinecraft->m_pUser, pLevel->m_pDimension->field_50);
+	return new LocalPlayer(m_pMinecraft, pLevel, m_pMinecraft->m_pUser, pLevel->getLevelData()->getGameType(), pLevel->m_pDimension->field_50);
 }
 
 void GameMode::initPlayer(Player* pPlayer)

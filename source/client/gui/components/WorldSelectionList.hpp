@@ -25,6 +25,9 @@ public:
 	void renderItem(int, int, int, int, Tesselator&) override;
 	void renderBackground() override;
 
+#ifndef ORIGINAL_CODE
+	std::string getGameModeString(GameType gameType);
+#endif
 	void commit();
 	void stepLeft();
 	void stepRight();

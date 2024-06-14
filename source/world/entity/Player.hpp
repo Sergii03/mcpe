@@ -13,13 +13,14 @@
 #include "world/item/Inventory.hpp"
 #include "world/entity/Mob.hpp"
 #include "world/entity/ItemEntity.hpp"
+#include "world/gamemode/GameType.hpp"
 
 class Inventory; // in case we're included from Inventory.hpp
 
 class Player : public Mob
 {
 public:
-	Player(Level*);
+	Player(Level*, GameType);
 	virtual ~Player();
 
 	virtual void reset() override;
@@ -71,6 +72,11 @@ public:
 	void interact(Entity* pEnt);
 #pragma GCC diagnostic pop
 
+	void setPlayerGameType(GameType);
+	GameType getPlayerGameType();
+	bool isSurvivle();
+	bool isCreative();
+
 public:
 	//TODO
 	Inventory* m_pInventory;
@@ -88,5 +94,7 @@ public:
 	//TODO
 	bool m_bHaveRespawnPos;
 	//TODO
+
+	GameType m_playerGameType;
 };
 

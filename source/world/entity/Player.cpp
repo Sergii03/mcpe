@@ -9,7 +9,7 @@
 #include "Player.hpp"
 #include "world/level/Level.hpp"
 
-Player::Player(Level* pLevel) : Mob(pLevel)
+Player::Player(Level* pLevel, GameType playerGameType) : Mob(pLevel)
 {
 	m_pInventory = nullptr;
 	field_B94 = 0;
@@ -39,6 +39,8 @@ Player::Player(Level* pLevel) : Mob(pLevel)
 
 	field_C4 = 20;
 	field_B5C = 180.0f;
+
+	setPlayerGameType(playerGameType);
 }
 
 Player::~Player()
@@ -91,9 +93,8 @@ bool Player::isCreativeModeAllowed()
 bool Player::hurt(Entity* pEnt, int damage)
 {
 	//@HUH
-#ifndef TEST_SURVIVAL_MODE
-	return false;
-#endif
+	if(isCreative())
+		return false;
 
 	return Mob::hurt(pEnt, damage);
 }
@@ -372,4 +373,24 @@ void Player::touch(Entity* pEnt)
 void Player::interact(Entity* pEnt)
 {
 	pEnt->interact(this);
+}
+
+void Player::setPlayerGameType(GameType gameType)
+{
+	m_playerGameType = gameType;
+}
+
+GameType Player::getPlayerGameType()
+{
+	return m_playerGameType;
+}
+
+bool Player::isSurvivle()
+{
+	return m_playerGameType == GAME_TYPE_SURVIVAL;
+}
+
+bool Player::isCreative()
+{
+	return m_playerGameType == GAME_TYPE_CREATIVE;
 }

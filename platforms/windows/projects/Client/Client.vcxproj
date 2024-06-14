@@ -339,6 +339,8 @@
     <ClInclude Include="$(MC_ROOT)\source\client\renderer\entity\SpiderRenderer.hpp" />
     <ClInclude Include="$(MC_ROOT)\source\client\renderer\entity\ZombieRenderer.hpp" />
     <ClInclude Include="$(MC_ROOT)\source\client\renderer\entity\RocketRenderer.hpp" />
+    <ClInclude Include="..\..\..\..\source\client\gui\components\CustomButton.hpp" />
+    <ClInclude Include="..\..\..\..\source\client\gui\screens\ArmorScreen.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MC_ROOT)\source\client\app\App.cpp" />
@@ -458,6 +460,8 @@
     <ClCompile Include="$(MC_ROOT)\source\client\renderer\entity\SpiderRenderer.cpp" />
     <ClCompile Include="$(MC_ROOT)\source\client\renderer\entity\ZombieRenderer.cpp" />
     <ClCompile Include="$(MC_ROOT)\source\client\renderer\entity\RocketRenderer.cpp" />
+    <ClCompile Include="..\..\..\..\source\client\gui\components\CustomButton.cpp" />
+    <ClCompile Include="..\..\..\..\source\client\gui\screens\ArmorScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.vcxproj">

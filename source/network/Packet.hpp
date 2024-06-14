@@ -14,6 +14,7 @@
 #include "BitStream.h"
 #include "MessageIdentifiers.h"
 #include "NetEventCallback.hpp"
+#include "world/gamemode/GameType.hpp"
 
 class NetEventCallback;
 class Level;
@@ -100,6 +101,8 @@ public:
 	float field_18;
 	int m_version;
 	int m_time;
+
+	GameType m_gameType;
 };
 
 class AddPlayerPacket : public Packet

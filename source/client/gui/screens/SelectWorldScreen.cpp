@@ -145,7 +145,7 @@ void SelectWorldScreen::tick()
 	if (m_pWorldSelectionList->field_90)
 	{
 		LevelSummary& ls = m_pWorldSelectionList->m_levelSummary;
-		m_pMinecraft->selectLevel(ls.field_0, ls.field_18, 0);
+		m_pMinecraft->selectLevel(ls.field_0, ls.field_18, 0, ls.m_gameType);
 		m_pMinecraft->hostMultiplayer();
 		m_pMinecraft->setScreen(new ProgressScreen);
 		return;

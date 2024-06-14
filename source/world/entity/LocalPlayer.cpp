@@ -11,7 +11,7 @@
 
 int dword_250ADC, dword_250AE0;
 
-LocalPlayer::LocalPlayer(Minecraft* pMinecraft, Level* pLevel, User* pUser, int i) : Player(pLevel)
+LocalPlayer::LocalPlayer(Minecraft* pMinecraft, Level* pLevel, User* pUser, GameType gameType, int i) : Player(pLevel, gameType)
 {
 	field_BEC = 0;
 	field_BF0 = 0.0f;

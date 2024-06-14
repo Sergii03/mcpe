@@ -14,7 +14,8 @@
 std::string g_sNotAvailableInDemoVersion = "Not available in the demo version";
 
 IngameBlockSelectionScreen::IngameBlockSelectionScreen() :
-	m_btnPause(0, "Pause")
+	m_btnPause(0, "Pause"),
+	m_btnArmorScreen(1, 256, "Armor")
 {
 	m_selectedSlot = 0;
 }
@@ -78,6 +79,12 @@ void IngameBlockSelectionScreen::init()
 	if (m_pMinecraft->isTouchscreen())
 		m_buttons.push_back(&m_btnPause);
 #endif
+
+	m_btnArmorScreen.m_width = 32;
+	m_btnArmorScreen.m_height = 32;
+	m_btnArmorScreen.m_xPos = m_width / 2 - 32 / 2;
+	m_btnArmorScreen.m_yPos = m_height - 32;
+	m_buttons.push_back(&m_btnArmorScreen);
 	
 	Inventory* pInv = getInventory();
 

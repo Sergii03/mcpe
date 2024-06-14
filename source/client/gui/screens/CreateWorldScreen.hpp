@@ -26,6 +26,11 @@ public:
 	TextInputBox m_textSeed;
 	Button m_btnBack;
 	Button m_btnCreate;
+
+#ifndef ORIGINAL_CODE
+	Button m_btnGameMode;
+	GameType m_gameType;
+#endif
 };
 
 #endif

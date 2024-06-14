@@ -39,6 +39,8 @@ void LevelData::read(RakNet::BitStream& bs, int version)
 	RakNet::RakString rs;
 	bs.Read(rs);
 	field_78 = std::string(rs.C_String());
+
+	bs.Read(m_gameType);
 }
 
 void LevelData::write(RakNet::BitStream& bs)
@@ -53,6 +55,8 @@ void LevelData::write(RakNet::BitStream& bs)
 
 	RakNet::RakString rs(field_78.c_str());
 	bs.Write(rs);
+
+	bs.Write(m_gameType);
 }
 
 void PlayerData::loadPlayer(Player* player)

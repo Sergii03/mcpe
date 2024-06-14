@@ -296,9 +296,11 @@ std::string LevelRenderer::gatherStats1()
 
 void LevelRenderer::onGraphicsReset()
 {
+	xglDeleteBuffers(m_nBuffers, m_pBuffers);
 	xglGenBuffers(m_nBuffers, m_pBuffers);
 	allChanged();
 
+	xglDeleteBuffers(1, &m_skyBuffer);
 	xglGenBuffers(1, &m_skyBuffer);
 	generateSky(); // inlined in the 0.1.0 demo
 }
