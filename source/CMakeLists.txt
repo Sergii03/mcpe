@@ -272,7 +272,11 @@ add_library(reminecraftpe-core STATIC
     world/tile/DoorTile.cpp
     world/tile/RocketLauncherTile.cpp
     renderer/GL/GL.cpp
+
+
+    client/gui/components/CustomButton.cpp
 )
+
 target_include_directories(reminecraftpe-core PUBLIC . ..)
 
 # RakNet

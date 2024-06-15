@@ -74,7 +74,7 @@ public:
 
 	void setPlayerGameType(GameType);
 	GameType getPlayerGameType();
-	bool isSurvivle();
+	bool isSurvival();
 	bool isCreative();
 
 public:
